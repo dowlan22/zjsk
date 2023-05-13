@@ -45,7 +45,7 @@ def get_users():
     return jsonify(users)
 
 # HTTP/HTTPS代理请求处理
-@app.route('/', defaults={'path': ''})
+@app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>', methods=['GET', 'POST'])
 @auth_required
 def proxy(path):
@@ -85,12 +85,4 @@ def socks_proxy():
     return proxy()
 
 if __name__ == '__main__':
-    # 从本地文件中读取用户名和密码，并添加到 users 字典中
-    with open('users.txt', 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                username, password = line.split('-')
-                users[username] = password
-
     app.run(host='0.0.0.0', port=port, debug=True)
