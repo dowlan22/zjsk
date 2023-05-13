@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	listenAddr = flag.String("listen-addr", "127.0.0.1:1080", "proxy server listen address")
+	listenAddr = flag.String("listen-addr", "127.0.0.1:8081", "proxy server listen address")
 	user       = flag.String("user", "123", "proxy authentication username")
 	pass       = flag.String("pass", "321", "proxy authentication password")
 )
